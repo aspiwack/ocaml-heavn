@@ -46,5 +46,6 @@ let symbol = Key.create symbol_compare
 let keyword = Key.create keyword_compare
 
 
+let bool : bool Key.t = Key.create Pervasives.compare
 let int : int Key.t = Key.create Pervasives.compare
 let string : string Key.t = Key.create Pervasives.compare
