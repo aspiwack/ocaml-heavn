@@ -1,4 +1,6 @@
 "src": traverse
 
-true: bin_annot, package(hashcons)
+true: bin_annot
+true: package(hashcons,sedlex)
+
 true: use_menhir

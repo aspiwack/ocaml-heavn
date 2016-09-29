@@ -34,6 +34,9 @@ This library is very much work in progress.
     - [X] Simple rules
     - [ ] Parse complete specification
 - [ ] Lexer
+    - [X] Symbols & keywords
+    - [ ] Scalars
+    - [ ] Delimiters
 - [ ] Package for Opam
     
     
