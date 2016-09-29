@@ -1,7 +1,7 @@
-Heaven
+Heavn
 ======
 
-_Where the camels come from_
+_Where the camls come from_
 
 This library implements
 the [edn](https://github.com/edn-format/edn#discard) data model, and a
@@ -61,7 +61,7 @@ I know of one other Ocaml library which parses Edn:
     - There are no handlers for tags
     - It doesn't define edn element equality
         - Sets and maps allow duplicate keys
-    - An alternative implementation for _heaven_ would have been to
+    - An alternative implementation for _heavn_ would have been to
       reuse the parser from ocaml-edn, and implement the data model
       and tag handlers as a second pass on the syntax tree it
       produces.
@@ -91,7 +91,7 @@ Instead I use a dynamic universal type. This is a well-known trick
 which is essentially equivalent to open variants (an element of the
 universal type is a pair of a key (which carries the type) and a
 value, sealed together with an existential type). There are a number
-of folklore implementation, _heaven_ uses one based, fittingly, on an
+of folklore implementation, _heavn_ uses one based, fittingly, on an
 open variant (in fact an open gadt: it helps with type safety).
 
 The reason to use a universal type is that with a small modification
