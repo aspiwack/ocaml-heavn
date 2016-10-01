@@ -1,8 +1,15 @@
 
 
 
-let digit = [%sedlex.regexp?  '0' .. '9']
+(*** Integers ***)
 
+let non_zero_digit = [%sedlex.regexp?  '1' .. '9']
+let digit = [%sedlex.regexp? '0' | non_zero_digit ]
+
+let positive_integer = [%sedlex.regexp? non_zero_digit , Star digit ]
+let integer = [%sedlex.regexp? Opt(Chars"+-") , positive_integer ]
+
+(*** Symbols & keywords ***)
 
 (* Non-alphanumeric characters allowed in symbols, including first
    character with no requirement on enclosing characters. *)
@@ -48,10 +55,12 @@ let tokenise lexbuf =
   let open Sedlexing in
   let open Parser in
   [%sedlex match lexbuf with
-  (* Symbols *)
+    (* Symbols *)
     | ident | '/' -> SYMBOL Edn.{prefix=""; name=Utf8.lexeme lexbuf}
     | ident , '/' , ident -> SYMBOL (Utf8.lexeme lexbuf |> parse_prefix)
     | colonident -> KEYWORD Edn.{prefix=""; name=Utf8.lexeme lexbuf}
     | colonident , '/' , ident -> KEYWORD (Utf8.lexeme lexbuf |> parse_prefix)
+    (* Scalars *)
+    | integer -> INT (Utf8.lexeme lexbuf |> int_of_string)
     | _ -> failwith "Unrecognised lexical sequence"
   ]
