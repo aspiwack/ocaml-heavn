@@ -36,7 +36,7 @@ This library is very much work in progress.
 - [ ] Lexer
     - [X] Symbols & keywords
     - [ ] Scalars
-        - [ ] booleans
+        - [X] booleans
         - [X] integers
         - [ ] strings
         - [ ] characters

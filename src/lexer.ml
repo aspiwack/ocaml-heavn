@@ -9,6 +9,15 @@ let digit = [%sedlex.regexp? '0' | non_zero_digit ]
 let positive_integer = [%sedlex.regexp? non_zero_digit , Star digit ]
 let integer = [%sedlex.regexp? Opt(Chars"+-") , positive_integer ]
 
+(* removes a leading '+' from an integer lexeme as they are not
+   recognised by Ocaml's parsing function. *)
+let strip_leading_plus s =
+  if s.[0] == '+' then String.(sub s 1 (length s - 1))
+  else s
+
+(*** booleans ***)
+let boolean = [%sedlex.regexp? "true" | "false" ]
+
 (*** Symbols & keywords ***)
 
 (* Non-alphanumeric characters allowed in symbols, including first
@@ -61,6 +70,7 @@ let tokenise lexbuf =
     | colonident -> KEYWORD Edn.{prefix=""; name=Utf8.lexeme lexbuf}
     | colonident , '/' , ident -> KEYWORD (Utf8.lexeme lexbuf |> parse_prefix)
     (* Scalars *)
-    | integer -> INT (Utf8.lexeme lexbuf |> Int64.of_string)
+    | integer -> INT (Utf8.lexeme lexbuf |> strip_leading_plus |> Int64.of_string)
+    | boolean -> BOOL (Utf8.lexeme lexbuf |> bool_of_string)
     | _ -> failwith "Unrecognised lexical sequence"
   ]
