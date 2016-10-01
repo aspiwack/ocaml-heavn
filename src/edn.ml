@@ -47,5 +47,5 @@ let keyword = Key.create keyword_compare
 
 
 let bool : bool Key.t = Key.create Pervasives.compare
-let int : int Key.t = Key.create Pervasives.compare
+let int : int64 Key.t = Key.create Int64.compare
 let string : string Key.t = Key.create Pervasives.compare

@@ -19,7 +19,7 @@ let map_of_list l =
 %}
 
 (* scalars *)
-%token <int> INT
+%token <int64> INT
 %token <string> STRING
 %token <bool> BOOL
 

@@ -61,6 +61,6 @@ let tokenise lexbuf =
     | colonident -> KEYWORD Edn.{prefix=""; name=Utf8.lexeme lexbuf}
     | colonident , '/' , ident -> KEYWORD (Utf8.lexeme lexbuf |> parse_prefix)
     (* Scalars *)
-    | integer -> INT (Utf8.lexeme lexbuf |> int_of_string)
+    | integer -> INT (Utf8.lexeme lexbuf |> Int64.of_string)
     | _ -> failwith "Unrecognised lexical sequence"
   ]

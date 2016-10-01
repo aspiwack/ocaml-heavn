@@ -15,5 +15,5 @@ val keyword : keyword Key.t
 
 
 val bool : bool Key.t
-val int : int Key.t
+val int : int64 Key.t
 val string : string Key.t
