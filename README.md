@@ -37,6 +37,7 @@ This library is very much work in progress.
     - [X] Symbols & keywords
     - [ ] Scalars
     - [ ] Delimiters
+- [ ] CI
 - [ ] Package for Opam
     
     
