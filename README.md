@@ -41,7 +41,7 @@ This library is very much work in progress.
         - [ ] strings
         - [ ] characters
         - [ ] floating point numbers
-    - [ ] Delimiters
+    - [X] Delimiters
 - [ ] CI
 - [ ] Package for Opam
     

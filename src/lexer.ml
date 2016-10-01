@@ -72,5 +72,14 @@ let tokenise lexbuf =
     (* Scalars *)
     | integer -> INT (Utf8.lexeme lexbuf |> strip_leading_plus |> Int64.of_string)
     | boolean -> BOOL (Utf8.lexeme lexbuf |> bool_of_string)
+    (* Delimiters *)
+    | "nil" -> NIL
+    | '(' -> LPAREN
+    | ')' -> RPAREN
+    | '[' -> LBRACKET
+    | ']' -> RBRACKET
+    | '{' -> LBRACE
+    | '}' -> RBRACE
+    | "#{" -> HLBRACE
     | _ -> failwith "Unrecognised lexical sequence"
   ]
