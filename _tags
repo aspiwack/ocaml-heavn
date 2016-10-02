@@ -1,4 +1,4 @@
-"src": traverse
+"src": include
 
 true: bin_annot
 true: package(hashcons,sedlex,menhirLib)
