@@ -15,7 +15,7 @@ let strip_leading_plus s =
   if s.[0] == '+' then String.(sub s 1 (length s - 1))
   else s
 
-(*** booleans ***)
+(*** Booleans ***)
 let boolean = [%sedlex.regexp? "true" | "false" ]
 
 (*** Symbols & keywords ***)
