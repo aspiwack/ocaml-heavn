@@ -5,3 +5,5 @@ true: package(hashcons,sedlex,menhirLib)
 
 true: use_menhir
 "src/parser.mly": incremental
+
+<test/**>: package(oUnit)

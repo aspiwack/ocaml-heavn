@@ -3,3 +3,4 @@ B _build/src
 
 PKG hashcons
 PKG sedlex
+PKG oUnit
