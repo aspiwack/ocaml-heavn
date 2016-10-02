@@ -1,7 +1,7 @@
 "src": include
 
 true: bin_annot
-true: package(hashcons,sedlex,menhirLib)
+true: package(hashcons,sedlex,menhirLib), debug
 
 true: use_menhir
 "src/parser.mly": incremental
