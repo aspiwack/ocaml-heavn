@@ -8,8 +8,14 @@ dependencies:
     # Install opam from upstream: the versions of Ubuntu in CircleCI are too old
     - wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin $OCAML_VERSION
     - opam install ocamlfind ocamlbuild hashcons sedlex menhir
+    # Extra dependencies for tests
+    - opam install ounit
   cache_directories:
     - "~/.opam"
 test:
   override:
-    - eval `opam config env` ; ocamlbuild -classic-display test/tests.byte --
+    - eval `opam config env` ; ocamlbuild -classic-display test/tests.byte -- -output-junit-file test-result.xml
+  post:
+    # Report test result in junit format
+    - mkdir -p $CIRCLE_TEST_REPORTS/ounit
+    - cp test-result.xml $CIRCLE_TEST_REPORTS/ounit
