@@ -42,6 +42,7 @@ This library is very much work in progress.
         - [ ] characters
         - [ ] floating point numbers
     - [X] Delimiters
+    - [X] Comments
 - [ ] CI
     - [X] Tests
     - [ ] Build/publish doc

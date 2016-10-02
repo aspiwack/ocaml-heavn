@@ -62,12 +62,18 @@ let parse_prefix s =
 
 (*** Whitespaces ***)
 let whitespace = [%sedlex.regexp? white_space | ',' ]
+let newline = [%sedlex.regexp? '\n' ]
+
+(*** Comments ***)
+let comment_marker = [%sedlex.regexp? ';' ]
 
 let rec tokenise lexbuf =
   let open Sedlexing in
   let open Parser in
   [%sedlex match lexbuf with
     | whitespace -> tokenise lexbuf
+    (* Comments *)
+    | comment_marker -> munch_comment lexbuf
     (* Symbols *)
     | ident | '/' -> SYMBOL Edn.{prefix=""; name=Utf8.lexeme lexbuf}
     | ident , '/' , ident -> SYMBOL (Utf8.lexeme lexbuf |> parse_prefix)
@@ -86,4 +92,12 @@ let rec tokenise lexbuf =
     | '}' -> RBRACE
     | "#{" -> HLBRACE
     | _ -> failwith "Unrecognised lexical sequence"
+  ]
+
+and munch_comment lexbuf =
+  let open Sedlexing in
+  [%sedlex match lexbuf with
+    | newline -> tokenise lexbuf
+    | Compl newline -> munch_comment lexbuf
+    | _ -> assert false
   ]

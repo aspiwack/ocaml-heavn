@@ -1,6 +1,6 @@
 {
   :keywod/field1  (+12 true)
-  symbol/field2   [-17 false] ,
+  symbol/field2   [-17 false] , ; commas are just a form of whitespace, and this also tests comments
   :field3         #{nil #{} () []}
   /               ( +asd * /  a:a )
 }
