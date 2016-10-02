@@ -2,7 +2,7 @@ open OUnit2
 
 let suite =
   "Parser validation" >::: [
-    "Mini-test" >:: (fun _ -> ignore @@ Parsing.of_file "test/edn/test1.edn")
+    "Mini-test" >:: (fun _ -> ignore @@ Deserialise.of_file "test/edn/test1.edn")
   ]
 
 
