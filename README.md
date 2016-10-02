@@ -1,7 +1,8 @@
 Heavn
 ======
-
+[![CircleCI](https://circleci.com/gh/aspiwack/ocaml-heavn.svg?style=svg)](https://circleci.com/gh/aspiwack/ocaml-heavn)
 _Where the camls come from_
+
 
 This library implements
 the [edn](https://github.com/edn-format/edn#discard) data model, and a
