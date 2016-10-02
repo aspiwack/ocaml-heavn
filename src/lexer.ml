@@ -18,6 +18,10 @@ let strip_leading_plus s =
 (*** Booleans ***)
 let boolean = [%sedlex.regexp? "true" | "false" ]
 
+(*** Strings ***)
+
+let string_quote = [%sedlex.regexp? '"']
+
 (*** Symbols & keywords ***)
 
 (* Non-alphanumeric characters allowed in symbols, including first
@@ -82,6 +86,8 @@ let rec tokenise lexbuf =
     (* Scalars *)
     | integer -> INT (Utf8.lexeme lexbuf |> strip_leading_plus |> Int64.of_string)
     | boolean -> BOOL (Utf8.lexeme lexbuf |> bool_of_string)
+    (* Strings *)
+    | string_quote -> make_string lexbuf
     (* Delimiters *)
     | "nil" -> NIL
     | '(' -> LPAREN
@@ -101,3 +107,24 @@ and munch_comment lexbuf =
     | Compl newline -> munch_comment lexbuf
     | _ -> assert false
   ]
+
+and make_string lexbuf =
+  (* FIXME: locations of strings will be completely inaccurate.  *)
+  let acc = Buffer.create 42 in
+  let rec read_string lexbuf =
+    let open Sedlexing in
+    [%sedlex match lexbuf with
+      | string_quote -> Buffer.contents acc
+      | "\\t" -> accumulate "\t" lexbuf
+      | "\\r" -> accumulate "\r" lexbuf
+      | "\\n" -> accumulate "\n" lexbuf
+      | "\\\\" -> accumulate "\\" lexbuf
+      | "\\\"" -> accumulate "\"" lexbuf
+      | Compl string_quote -> accumulate (Utf8.lexeme lexbuf) lexbuf
+      | _ -> assert false
+    ]
+  and accumulate str lexbuf =
+    Buffer.add_string acc str;
+    read_string lexbuf
+  in
+  Parser.STRING (read_string lexbuf)

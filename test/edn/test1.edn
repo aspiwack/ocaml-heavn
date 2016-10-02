@@ -3,4 +3,5 @@
   symbol/field2   [-17 false] , ; commas are just a form of whitespace, and this also tests comments
   :field3         #{nil #{} () []}
   /               ( +asd * /  a:a )
+  :just/strings   "ab; \t\n\r\"\\ more stuff: 1,2,+*&^"
 }

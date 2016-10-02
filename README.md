@@ -38,7 +38,7 @@ This library is very much work in progress.
     - [ ] Scalars
         - [X] booleans
         - [X] integers
-        - [ ] strings
+        - [X] strings
         - [ ] characters
         - [ ] floating point numbers
     - [X] Delimiters
