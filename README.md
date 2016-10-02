@@ -1,7 +1,7 @@
 Heavn
 ======
 [![CircleCI](https://circleci.com/gh/aspiwack/ocaml-heavn.svg?style=svg)](https://circleci.com/gh/aspiwack/ocaml-heavn)
-_Where the camls come from_
+_Where camls come from_
 
 
 This library implements
