@@ -60,10 +60,14 @@ let parse_prefix s =
   let name = String.(sub s (at+1) (length s - at - 1)) in
   Edn.{prefix;name}
 
-let tokenise lexbuf =
+(*** Whitespaces ***)
+let whitespace = [%sedlex.regexp? white_space | ',' ]
+
+let rec tokenise lexbuf =
   let open Sedlexing in
   let open Parser in
   [%sedlex match lexbuf with
+    | whitespace -> tokenise lexbuf
     (* Symbols *)
     | ident | '/' -> SYMBOL Edn.{prefix=""; name=Utf8.lexeme lexbuf}
     | ident , '/' , ident -> SYMBOL (Utf8.lexeme lexbuf |> parse_prefix)
