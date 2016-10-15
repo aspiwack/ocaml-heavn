@@ -50,8 +50,8 @@ This library is very much work in progress.
     - [X] Build/publish doc
 - [ ] Pack modules
 - [ ] Package for Opam
-    
-    
+
+
 Why do I want this?
 -------------------
 
