@@ -44,9 +44,10 @@ This library is very much work in progress.
         - [ ] floating point numbers
     - [X] Delimiters
     - [X] Comments
-- [ ] CI
+- [ ] Document API
+- [X] CI
     - [X] Tests
-    - [ ] Build/publish doc
+    - [X] Build/publish doc
 - [ ] Pack modules
 - [ ] Package for Opam
     
