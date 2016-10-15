@@ -1,6 +1,8 @@
 S src
 B _build/src
 
+FLG -warn +a-50-4-48@8
+
 PKG hashcons
 PKG sedlex
 PKG oUnit
