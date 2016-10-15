@@ -34,48 +34,7 @@
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">'a <a href="Key.html#TYPEcomparison">comparison</a> -> 'a <a href="Key.html#TYPEt">t</a></code></pre>
 <pre><span id="VALcomp"><span class="keyword">val</span> comp</span> : <code class="type">'a <a href="Key.html#TYPEt">t</a> -> 'a <a href="Key.html#TYPEcomparison">comparison</a></code></pre>
-<pre><code><span id="TYPEeq_test"><span class="keyword">type</span> <code class="type">('_, '_)</code> eq_test</span> = </code></pre><table class="typetable">
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTeq_test.Eq"><span class="constructor">Eq</span></span> <span class="keyword">:</span> <code class="type">('a, 'a) <a href="Key.html#TYPEeq_test">eq_test</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTeq_test.Diseq"><span class="constructor">Diseq</span></span> <span class="keyword">:</span> <code class="type">('a0, 'b) <a href="Key.html#TYPEeq_test">eq_test</a></code></code></td>
-
-</tr></table>
-
-
-
-<pre><span id="VALeq"><span class="keyword">val</span> eq</span> : <code class="type">'a <a href="Key.html#TYPEt">t</a> -> 'b <a href="Key.html#TYPEt">t</a> -> ('a, 'b) <a href="Key.html#TYPEeq_test">eq_test</a></code></pre>
-<pre><code><span id="TYPEcmp_test"><span class="keyword">type</span> <code class="type">('_, '_)</code> cmp_test</span> = </code></pre><table class="typetable">
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTcmp_test.Lt"><span class="constructor">Lt</span></span> <span class="keyword">:</span> <code class="type">('a, 'b) <a href="Key.html#TYPEcmp_test">cmp_test</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTcmp_test.Eq"><span class="constructor">Eq</span></span> <span class="keyword">:</span> <code class="type">('a0, 'a0) <a href="Key.html#TYPEcmp_test">cmp_test</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTcmp_test.Gt"><span class="constructor">Gt</span></span> <span class="keyword">:</span> <code class="type">('a1, 'b0) <a href="Key.html#TYPEcmp_test">cmp_test</a></code></code></td>
-
-</tr></table>
-
-
-
-<pre><span id="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type">'a <a href="Key.html#TYPEt">t</a> -> 'b <a href="Key.html#TYPEt">t</a> -> ('a, 'b) <a href="Key.html#TYPEcmp_test">cmp_test</a></code></pre></body></html>
+<pre><span class="keyword">module</span> <a href="Key.Eq.html">Eq</a>: <code class="code">sig</code> <a href="Key.Eq.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALeq"><span class="keyword">val</span> eq</span> : <code class="type">'a <a href="Key.html#TYPEt">t</a> -> 'b <a href="Key.html#TYPEt">t</a> -> ('a, 'b) <a href="Key.Eq.html#TYPEtest">Eq.test</a></code></pre>
+<pre><span class="keyword">module</span> <a href="Key.Comp.html">Comp</a>: <code class="code">sig</code> <a href="Key.Comp.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type">'a <a href="Key.html#TYPEt">t</a> -> 'b <a href="Key.html#TYPEt">t</a> -> ('a, 'b) <a href="Key.Comp.html#TYPEtest">Comp.test</a></code></pre></body></html>
