@@ -5,5 +5,8 @@ true: package(hashcons,sedlex,menhirLib), debug
 
 true: use_menhir
 "src/parser.mly": incremental
+# Menhir generates file which trips warning #9, so it is deactivated
+# in the menhir-generated code.
+"src/parser.*": warn(-9)
 
 <test/**>: package(oUnit)
