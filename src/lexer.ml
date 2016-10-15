@@ -101,7 +101,6 @@ let rec tokenise lexbuf =
   ]
 
 and munch_comment lexbuf =
-  let open Sedlexing in
   [%sedlex match lexbuf with
     | newline -> tokenise lexbuf
     | Compl newline -> munch_comment lexbuf

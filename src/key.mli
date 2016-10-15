@@ -8,16 +8,19 @@ val create : 'a comparison -> 'a t
 
 val comp : 'a t -> 'a comparison
 
-type (_,_) eq_test =
-  | Eq : ('a,'a) eq_test
-  | Diseq : ('a,'b) eq_test
+module Eq : sig
+  type (_,_) test =
+    | Eq : ('a,'a) test
+    | Diseq : ('a,'b) test
+end
 
-val eq : 'a t -> 'b t -> ('a,'b) eq_test
+val eq : 'a t -> 'b t -> ('a,'b) Eq.test
 
+module Comp : sig
+  type (_,_) test =
+    | Lt : ('a,'b) test
+    | Eq : ('a,'a) test
+    | Gt : ('a,'b) test
+end
 
-type (_,_) cmp_test =
-  | Lt : ('a,'b) cmp_test
-  | Eq : ('a,'a) cmp_test
-  | Gt : ('a,'b) cmp_test
-
-val compare : 'a t -> 'b t -> ('a,'b) cmp_test
+val compare : 'a t -> 'b t -> ('a,'b) Comp.test

@@ -34,14 +34,17 @@ let comp (type a) (k:a t) : a comparison =
   let module K = (val k) in
   K.compare
 
-type (_,_) cmp_test =
-  | Lt : ('a,'b) cmp_test
-  | Eq : ('a,'a) cmp_test
-  | Gt : ('a,'b) cmp_test
+module Comp = struct
+  type (_,_) test =
+    | Lt : ('a,'b) test
+    | Eq : ('a,'a) test
+    | Gt : ('a,'b) test
+end
 
-let compare (type a) (type b) (k1:a t) (k2:b t) : (a,b) cmp_test =
+let compare (type a) (type b) (k1:a t) (k2:b t) : (a,b) Comp.test =
   let module K1 = (val k1) in
   let module K2 = (val k2) in
+  let open Comp in
   match K2.K with
   | K1.K -> Eq
   | _ ->
@@ -53,11 +56,13 @@ let compare (type a) (type b) (k1:a t) (k2:b t) : (a,b) cmp_test =
     if Pervasives.compare (Obj.repr k1) (Obj.repr k2) > 0 then Gt
     else Lt
 
-type (_,_) eq_test =
-  | Eq : ('a,'a) eq_test
-  | Diseq : ('a,'b) eq_test
+module Eq = struct
+  type (_,_) test =
+    | Eq : ('a,'a) test
+    | Diseq : ('a,'b) test
+end
 
-let eq (type a) (type b) (k1:a t) (k2:b t) : (a,b) eq_test =
+let eq (type a) (type b) (k1:a t) (k2:b t) : (a,b) Eq.test =
   match compare k1 k2 with
-  | Eq -> Eq
-  | Gt | Lt -> Diseq
+  | Comp.Eq -> Eq.Eq
+  | Comp.Gt | Comp.Lt -> Eq.Diseq
