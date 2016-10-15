@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Deserialise.html">
+<link rel="next" href="Edn.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Deserialise" rel="Chapter" href="Deserialise.html">
+<link title="Dyn" rel="Chapter" href="Dyn.html">
+<link title="Edn" rel="Chapter" href="Edn.html">
+<link title="Eq" rel="Chapter" href="Eq.html">
+<link title="Key" rel="Chapter" href="Key.html">
+<link title="Lexer" rel="Chapter" href="Lexer.html"><title>Dyn</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Deserialise.html" title="Deserialise">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Edn.html" title="Edn">Next</a>
+</div>
+<h1>Module <a href="type_Dyn.html">Dyn</a></h1>
+
+<pre><span class="keyword">module</span> Dyn: <code class="code">sig</code> <a href="Dyn.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.Dyn"><span class="constructor">Dyn</span></span> <span class="keyword">:</span> <code class="type">'a <a href="Key.html#TYPEt">Key.t</a> * 'a</code> <span class="keyword">-></span> <code class="type"><a href="Dyn.html#TYPEt">t</a></code></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="Dyn.html#TYPEt">t</a> -> <a href="Dyn.html#TYPEt">t</a> -> int</code></pre>
+<pre><span class="keyword">module</span> <a href="Dyn.Set.html">Set</a>: <code class="type">Set.S</code><code class="type">  with type elt = t</code></pre>
+<pre><span class="keyword">module</span> <a href="Dyn.Map.html">Map</a>: <code class="type">Map.S</code><code class="type">  with type key = t</code></pre></body></html>
