@@ -15,7 +15,11 @@ dependencies:
 test:
   override:
     - eval `opam config env` ; ocamlbuild -classic-display test/tests.byte -- -output-junit-file test-result.xml
+    # Compiles the documentation
+    - eval `opam config env` ; ocamlbuild -classic-display lib.docdir/index.html
   post:
     # Report test result in junit format
     - mkdir -p $CIRCLE_TEST_REPORTS/ounit
     - cp test-result.xml $CIRCLE_TEST_REPORTS/ounit
+    # Exports documentation as an artifact
+    - cp -v lib.docdir/* $CIRCLE_ARTIFACTS/
