@@ -51,6 +51,11 @@ This library is very much work in progress.
 - [ ] Pack modules
 - [ ] Package for Opam
 
+Documentation
+-------------
+
+API documentation for the latest development version can be found at:
+https://aspiwack.github.io/ocaml-heavn/master/ .
 
 Why do I want this?
 -------------------
